@@ -68,7 +68,11 @@ export default function Footer() {
                 ['News & Insights', '/#blog'],
               ].map(([item, href]) => (
                 <li key={item}>
-                  <a href={href} className="hover:text-primary transition-colors">{item}</a>
+                  {href.startsWith('/#') ? (
+                    <a href={href} className="hover:text-primary transition-colors">{item}</a>
+                  ) : (
+                    <Link to={href} className="hover:text-primary transition-colors">{item}</Link>
+                  )}
                 </li>
               ))}
             </ul>
