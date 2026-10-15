@@ -1,0 +1,67 @@
+{
+  "name": "ContentAuditLog",
+  "type": "object",
+  "properties": {
+    "section_key": {
+      "type": "string",
+      "description": "The site section that was changed"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "create",
+        "update"
+      ],
+      "default": "update",
+      "description": "Whether a record was created or updated"
+    },
+    "field_changes": {
+      "type": "string",
+      "description": "JSON array of field-level changes: [{field, old_value, new_value}]"
+    },
+    "changed_by_name": {
+      "type": "string",
+      "description": "Name of the user who made the change"
+    }
+  },
+  "required": [
+    "section_key",
+    "action",
+    "field_changes"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    },
+    "create": {},
+    "update": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

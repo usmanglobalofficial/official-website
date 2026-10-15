@@ -1,0 +1,89 @@
+{
+  "name": "SiteContent",
+  "type": "object",
+  "properties": {
+    "section_key": {
+      "type": "string",
+      "enum": [
+        "home",
+        "about",
+        "directors",
+        "products",
+        "sorting",
+        "why",
+        "global",
+        "testimonials",
+        "contact"
+      ],
+      "description": "The page section this content applies to"
+    },
+    "seo_title": {
+      "type": "string",
+      "description": "SEO title for this section"
+    },
+    "meta_description": {
+      "type": "string",
+      "description": "Meta description for SEO"
+    },
+    "keywords": {
+      "type": "string",
+      "description": "Comma-separated SEO keywords"
+    },
+    "heading": {
+      "type": "string",
+      "description": "Main heading displayed on the page"
+    },
+    "body_text": {
+      "type": "string",
+      "description": "Supporting body text displayed under the heading"
+    }
+  },
+  "required": [
+    "section_key"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    }
+  }
+}
