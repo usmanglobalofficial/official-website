@@ -15,7 +15,13 @@ export default function BlogPostPage() {
     setLoading(true);
     base44.entities.BlogPost
       .filter({ slug, status: 'published' })
-      .then(records => setPost(records[0] || null))
+      .then(records => {
+        if (Array.isArray(records) && records.length > 0 && typeof records[0] === 'object') {
+          setPost(records[0]);
+        } else {
+          setPost(null);
+        }
+      })
       .catch(() => setPost(null))
       .finally(() => setLoading(false));
   }, [slug]);

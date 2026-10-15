@@ -11,7 +11,13 @@ export default function BlogSection() {
   useEffect(() => {
     base44.entities.BlogPost
       .filter({ status: 'published' }, '-created_date', 3)
-      .then(setPosts)
+      .then(res => {
+        if (Array.isArray(res)) {
+          setPosts(res);
+        } else {
+          setPosts([]);
+        }
+      })
       .catch(() => setPosts([]))
       .finally(() => setLoading(false));
   }, []);
@@ -26,7 +32,7 @@ export default function BlogSection() {
     );
   }
 
-  if (posts.length === 0) return null;
+  if (!Array.isArray(posts) || posts.length === 0) return null;
 
   return (
     <section className="py-24 bg-muted/30">

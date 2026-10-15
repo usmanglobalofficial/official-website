@@ -125,7 +125,7 @@ export default function HeroSection() {
                     >
                       {(() => {
                         const Icon = VIDEO_COVER_ICONS[activeVideo];
-                        return <Icon className="w-12 h-12 text-primary/60" />;
+                        return Icon ? <Icon className="w-12 h-12 text-primary/60" /> : null;
                       })()}
                       <div className="text-white/80 text-sm font-medium">
                         Loading {VIDEO_SOURCES[activeVideo].label}…

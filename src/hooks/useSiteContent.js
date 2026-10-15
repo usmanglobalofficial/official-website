@@ -20,10 +20,16 @@ export function useSiteContent() {
     if (!loadPromise) {
       loadPromise = base44.entities.SiteContent.list()
         .then(records => {
-          contentCache = records.reduce((acc, r) => {
-            acc[r.section_key] = r;
-            return acc;
-          }, {});
+          if (Array.isArray(records)) {
+            contentCache = records.reduce((acc, r) => {
+              if (r && r.section_key) {
+                acc[r.section_key] = r;
+              }
+              return acc;
+            }, {});
+          } else {
+            contentCache = {};
+          }
         })
         .catch(() => {
           contentCache = {};
