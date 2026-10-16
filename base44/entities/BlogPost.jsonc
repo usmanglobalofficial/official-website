@@ -1,0 +1,119 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Post title"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL slug for the post"
+    },
+    "cover_image_url": {
+      "type": "string",
+      "description": "Cover image URL"
+    },
+    "body_html": {
+      "type": "string",
+      "description": "Post body content (HTML)"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Short excerpt for blog cards"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author name"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft",
+      "description": "Publication status"
+    },
+    "seo_title": {
+      "type": "string",
+      "description": "Search title for the blog post"
+    },
+    "meta_description": {
+      "type": "string",
+      "description": "Search meta description for the blog post"
+    },
+    "keywords": {
+      "type": "string",
+      "description": "Keyword topic map for the blog post"
+    }
+  },
+  "required": [
+    "title",
+    "slug"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.status": "published"
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    },
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    }
+  }
+}

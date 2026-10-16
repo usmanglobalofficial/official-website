@@ -1,0 +1,96 @@
+{
+  "name": "SeoPerformanceSnapshot",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "Human-readable name for this SEO measurement snapshot"
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date",
+      "description": "Search Console reporting period start"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date",
+      "description": "Search Console reporting period end"
+    },
+    "site_url": {
+      "type": "string",
+      "description": "Search Console property used"
+    },
+    "metrics_json": {
+      "type": "string",
+      "description": "JSON summary metrics: clicks, impressions, CTR and average position"
+    },
+    "target_queries_json": {
+      "type": "string",
+      "description": "JSON metrics for the fixed benchmark queries"
+    },
+    "top_queries_json": {
+      "type": "string",
+      "description": "JSON list of top Search Console queries at capture time"
+    },
+    "top_pages_json": {
+      "type": "string",
+      "description": "JSON list of top landing pages at capture time"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Context about what this snapshot represents"
+    },
+    "captured_by_name": {
+      "type": "string",
+      "description": "Name or email of the user who saved the snapshot"
+    }
+  },
+  "required": [
+    "label",
+    "period_start",
+    "period_end",
+    "site_url",
+    "metrics_json",
+    "target_queries_json"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    },
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "content_manager"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

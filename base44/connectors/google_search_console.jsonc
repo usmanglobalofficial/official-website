@@ -1,0 +1,7 @@
+{
+  "type": "google_search_console",
+  "scopes": [
+    "email",
+    "https://www.googleapis.com/auth/webmasters.readonly"
+  ]
+}
