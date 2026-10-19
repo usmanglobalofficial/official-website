@@ -14,15 +14,15 @@ const contacts = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+971 52 876 9034',
-    href: 'tel:+971528769034',
+    value: '+971 54 996 9994',
+    href: 'tel:+971549969994',
     note: 'United Arab Emirates',
   },
   {
     icon: MessageSquare,
     label: 'WhatsApp',
-    value: '+971 50 477 1371',
-    href: 'https://wa.me/971504771371',
+    value: '+971 54 996 9994',
+    href: 'https://wa.me/971549969994',
     note: 'Quick product and shipment enquiries',
   },
   {

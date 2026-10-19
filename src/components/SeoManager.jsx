@@ -55,7 +55,7 @@ function setStructuredData() {
         name: 'Usman Global F.Z.C.',
         url: SITE_URL,
         email: 'info@usmanglobal.com',
-        telephone: '+971508813571',
+        telephone: '+971549969994',
         description: 'UAE-based wholesale used clothing sorting, grading and export company serving international markets.',
         address: {
           '@type': 'PostalAddress',

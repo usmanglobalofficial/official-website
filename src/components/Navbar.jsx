@@ -31,8 +31,8 @@ export default function Navbar() {
           <a href="mailto:info@usmanglobal.com" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
             <Mail className="w-3 h-3" /> info@usmanglobal.com
           </a>
-          <a href="tel:+971528769034" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
-            <Phone className="w-3 h-3" /> +971 52 876 9034
+          <a href="tel:+971549969994" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+            <Phone className="w-3 h-3" /> +971 54 996 9994
           </a>
         </div>
         <div className="flex items-center gap-1.5">

@@ -61,9 +61,9 @@ export default function ContactSection() {
             </div>
             {[
               { icon: Mail, label: 'Email Us', value: 'info@usmanglobal.com', href: 'mailto:info@usmanglobal.com', multiline: false },
-              { icon: Phone, label: 'Call Us', value: '+971 52 876 9034', href: 'tel:+971528769034', multiline: false },
+              { icon: Phone, label: 'Call Us', value: '+971 54 996 9994', href: 'tel:+971549969994', multiline: false },
               { icon: MapPin, label: 'Visit Us', value: 'USMAN GLOBAL FZC\nPLOT # 4D 01C-13\nHAMRIYAH FREE ZONE PHASE II\nSHARJAH UNITED ARAB EMIRATES', href: '#', multiline: true },
-              { icon: MessageSquare, label: 'WhatsApp', value: '+971 52 876 9034', href: 'https://wa.me/971528769034', multiline: false },
+              { icon: MessageSquare, label: 'WhatsApp', value: '+971 54 996 9994', href: 'https://wa.me/971549969994', multiline: false },
             ].map(({ icon: Icon, label, value, href, multiline }) => (
               <a
                 key={label}

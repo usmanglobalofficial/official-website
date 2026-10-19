@@ -1104,12 +1104,12 @@ export default function Catalogue() {
                     Request Custom Container Quotation <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                   <a
-                    href="https://wa.me/971504771371"
+                    href="https://wa.me/971549969994"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 text-white font-semibold hover:bg-white/20 transition-all text-xs border border-white/20 whitespace-nowrap"
                   >
-                    WhatsApp Export Desk: +971 50 477 1371
+                    WhatsApp Export Desk: +971 54 996 9994
                   </a>
                 </div>
               </div>
@@ -1440,7 +1440,7 @@ export default function Catalogue() {
                 {/* Direct Single-Line WhatsApp CTA Button */}
                 <div className="pt-2">
                   <a
-                    href={`https://wa.me/971504771371?text=${encodeURIComponent(
+                    href={`https://wa.me/971549969994?text=${encodeURIComponent(
                       `Hello Usman Global, I watched the product video & designs for: "${selectedProduct.title}" (${selectedProduct.grade}). I am interested in inquiring about bale pricing and container availability.\nLink: ${getProductShareUrl(selectedProduct.id, selectedProduct.categoryId)}`
                     )}`}
                     target="_blank"
