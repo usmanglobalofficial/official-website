@@ -11,6 +11,7 @@ import Admin from './pages/Admin';
 import BlogPostPage from './pages/BlogPostPage';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Catalogue from './pages/Catalogue';
 import React from 'react';
 import ProtectedAdminRoute from '@/components/admin/ProtectedAdminRoute';
 
@@ -75,6 +76,8 @@ const AuthenticatedApp = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/catalogue" element={<Catalogue />} />
+        <Route path="/catalog" element={<Catalogue />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/admin" element={<ProtectedAdminRoute><Admin /></ProtectedAdminRoute>} />

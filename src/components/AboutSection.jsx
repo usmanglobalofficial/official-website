@@ -58,8 +58,8 @@ export default function AboutSection() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=600&h=500&fit=crop"
-                alt="Clothing sorting facility"
+                src="/images/products/ug-image-1.jpg"
+                alt="Usman Global clothing sorting and baling facility"
                 className="w-full h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />

@@ -62,6 +62,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {[
                 ['About Us', '/about'],
+                ['Catalogue & Reels', '/catalogue'],
                 ['Sorting & Quality Control', '/#sorting'],
                 ['Global Trade & Logistics', '/#global'],
                 ['Contact Us', '/contact'],
