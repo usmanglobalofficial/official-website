@@ -9,7 +9,7 @@ const products = [
     desc: 'Sorted by quality: Cream (premium), Export A, B, C grades. Packed in bales, ready for resale worldwide.',
     color: 'bg-blue-50 text-blue-600',
     border: 'hover:border-blue-200',
-    img: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&h=250&fit=crop',
+    img: '/images/products/ug-image-1.jpg',
   },
   {
     icon: Footprints,
@@ -41,7 +41,7 @@ const products = [
     desc: 'Unique vintage pieces with character. Premium quality sorted into Cream and Export A grades.',
     color: 'bg-teal-50 text-teal-600',
     border: 'hover:border-teal-200',
-    img: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=400&h=250&fit=crop',
+    img: '/images/products/ug-image-5.jpg',
   },
   {
     icon: Recycle,
@@ -49,7 +49,7 @@ const products = [
     desc: 'Processed recycled cotton — eco-friendly material ideal for industrial cleaning applications.',
     color: 'bg-green-50 text-green-600',
     border: 'hover:border-green-200',
-    img: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=400&h=250&fit=crop',
+    img: '/images/products/ug-image-3.jpg',
   },
 ];
 
