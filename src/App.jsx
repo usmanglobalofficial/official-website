@@ -14,6 +14,7 @@ import Contact from './pages/Contact';
 import Catalogue from './pages/Catalogue';
 import React from 'react';
 import ProtectedAdminRoute from '@/components/admin/ProtectedAdminRoute';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -83,6 +84,7 @@ const AuthenticatedApp = () => {
         <Route path="/admin" element={<ProtectedAdminRoute><Admin /></ProtectedAdminRoute>} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <FloatingWhatsApp />
     </ErrorBoundary>
   );
 };

@@ -5,7 +5,7 @@ const items = [
   {
     icon: Globe,
     title: 'Main Hub: UAE',
-    subtitle: 'Large-scale sorting, warehousing and export operations.'
+    subtitle: 'Large-scale sorting, grading and export operations.'
   },
   {
     icon: Globe2,

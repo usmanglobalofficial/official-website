@@ -9,7 +9,7 @@ export const SECTION_DEFS = [
     key: 'about',
     label: 'About Company',
     defaultHeading: 'Large-Scale Used Clothing Sorting & Export Network',
-    defaultBody: 'With 35+ years of industry experience, Usman Global F.Z.C. operates large-scale sorting and warehousing facilities in the UAE, supported by operations in Pakistan, Malaysia and Turkey. Our teams grade used clothing, shoes, bags and other reusable goods for consistent wholesale export.',
+    defaultBody: 'With 35+ years of industry experience, Usman Global F.Z.C. operates large-scale sorting and export facilities in the UAE, supported by operations in Pakistan, Malaysia and Turkey. Our teams grade used clothing, shoes, bags and other reusable goods for consistent wholesale export.',
   },
   {
     key: 'directors',

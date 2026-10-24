@@ -32,13 +32,14 @@ import { useToast } from '@/components/ui/use-toast';
 // Available video assets (including the client's uploaded Google Drive video)
 const VIDEO_ASSETS = {
   clientShowcase: '/videos/product-showcase.mp4', // Google Drive client uploaded video
+  factory2: '/videos/factory-2.webm',             // Factory 2 local video
   sorting: 'https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/af5412872_CO-Virtual-Tour.mp4',
   baling: 'https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/c22eeaf2d_WhatsAppVideo2026-09-22at115900AM.mp4',
-  grading: 'https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/f4e8a4356_0803.mp4',
-  warehouse: 'https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/dce42e82d_Warehouse.mp4',
+  grading: '/videos/factory-2.webm',
+  sortingBay: 'https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/af5412872_CO-Virtual-Tour.mp4',
 };
 
-// Real Usman Global warehouse & product images from client Google Drive
+// Real Usman Global facility & product images from client Google Drive
 const CLIENT_IMAGES = {
   balesWarehouseStack: '/images/products/ug-image-1.jpg',   // Massive vertical export-ready bale stack with stencils
   garmentSortingCage: '/images/products/ug-image-2.jpg',    // Metal sorting cage trolley with folded shirts & garments
@@ -254,7 +255,7 @@ export const CATALOGUE_PRODUCTS = [
       CLIENT_IMAGES.balesWarehouseStack,
     ],
     duration: null,
-    location: 'Warehouse Loading Bay',
+    location: 'Sharjah Sorting & Packing Bay',
     features: ['Sturdy functional zippers', 'High cargo demand in West Africa', 'Reinforced stitching'],
   },
   {
@@ -306,7 +307,7 @@ export const CATALOGUE_PRODUCTS = [
     pieceCount: '~22-26 pairs per sack',
     origin: 'UK & Italy',
     description: 'Genuine leather business shoes, brogues, and dress loafers. Well-maintained heels, clean uppers, and solid soles.',
-    videoUrl: VIDEO_ASSETS.warehouse,
+    videoUrl: VIDEO_ASSETS.sorting,
     images: [
       CLIENT_IMAGES.balesWarehouseStack,
       CLIENT_IMAGES.garmentSortingCage,

@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Globe2, Factory, PackageCheck, Recycle } from 'lucide-react';
+import { CheckCircle, Globe2, Factory, PackageCheck, Recycle, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import DirectorsSection from '@/components/DirectorsSection';
 import WorldMapSection from '@/components/WorldMapSection';
+import InquiryModal from '@/components/InquiryModal';
 
 const capabilities = [
   {
@@ -38,6 +39,8 @@ const highlights = [
 ];
 
 export default function About() {
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+
   useEffect(() => {
     const title = 'About Us | Used Clothing Exporter UAE | Usman Global';
     const description = 'Learn about Usman Global F.Z.C., a UAE-based wholesale used clothing supplier with international sourcing, large-scale sorting and export operations serving global markets.';
@@ -70,35 +73,51 @@ export default function About() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
+      <InquiryModal isOpen={isInquiryOpen} onClose={() => setIsInquiryOpen(false)} />
       <Navbar />
-      <main className="pt-[96px] md:pt-[112px]">
-        <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-primary/80 text-white py-20 md:py-28">
+      <main className="pt-[72px] md:pt-[112px]">
+        <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-primary/80 text-white py-14 sm:py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="max-w-4xl">
-              <div className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">About Usman Global</div>
-              <h1 className="text-4xl md:text-6xl font-bold font-playfair leading-tight mb-6">
+              <div className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider mb-3">About Usman Global</div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-playfair leading-tight mb-4 sm:mb-6">
                 Global Used Clothing Sourcing, Sorting & Wholesale Export
               </h1>
-              <p className="text-lg md:text-xl text-white/75 leading-relaxed max-w-3xl">
-                Usman Global F.Z.C. is a UAE-based used clothing and reusable-goods business serving international wholesale markets through global sourcing, large-scale sorting and grading, warehousing and export operations.
+              <p className="text-sm sm:text-base md:text-xl text-white/75 leading-relaxed max-w-3xl mb-8">
+                Usman Global F.Z.C. is a UAE-based used clothing and reusable-goods business serving international wholesale markets through global sourcing, large-scale sorting and grading, packing and export operations.
               </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsInquiryOpen(true)}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-all text-sm shadow-lg shadow-primary/25"
+                >
+                  Make an Inquiry <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link
+                  to="/catalogue"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all text-sm border border-white/20"
+                >
+                  View Catalogue
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 md:py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-14 items-start">
+        <section className="py-14 sm:py-20 md:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             <div>
-              <div className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">Who We Are</div>
-              <h2 className="text-3xl md:text-4xl font-bold font-playfair text-foreground mb-6">
+              <div className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2">Who We Are</div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-playfair text-foreground mb-5">
                 From International Collection Streams to Export-Ready Wholesale Goods
               </h2>
-              <div className="space-y-5 text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 <p>
                   Usman Global sources charity collections, pre-owned textiles and other reusable goods from established supply markets including the GCC, Europe, the United Kingdom, Australia and additional international sources.
                 </p>
                 <p>
-                  The UAE is our principal sorting, grading, warehousing and export hub. Incoming goods are separated by category, condition and destination-market requirements before being prepared for wholesale distribution.
+                  The UAE is our principal sorting, grading, packing and export hub. Incoming goods are separated by category, condition and destination-market requirements before being prepared for wholesale distribution.
                 </p>
                 <p>
                   Our wider operational network includes facilities and business presence supporting the group in Pakistan, Malaysia and Mersin, Turkey. This network helps us serve buyers across Africa, South Asia, the Middle East and other international markets.

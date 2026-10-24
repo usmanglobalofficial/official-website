@@ -1,21 +1,22 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Globe, Package, Truck, Loader2, Factory, Warehouse } from 'lucide-react';
+import { ArrowRight, Globe, Package, Truck, Loader2, Factory } from 'lucide-react';
 import { useSiteContent } from '@/hooks/useSiteContent';
+import InquiryModal from '@/components/InquiryModal';
 
 const DEFAULT_VIDEO_URL = "https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/af5412872_CO-Virtual-Tour.mp4";
 
 const VIDEO_SOURCES = [
   { label: 'Factory 1', url: 'https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/c22eeaf2d_WhatsAppVideo2026-09-22at115900AM.mp4' },
-  { label: 'Factory 2', url: 'https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/f4e8a4356_0803.mp4' },
-  { label: 'Warehouses in Freezone', url: 'https://media.base44.com/videos/public/69e988326d6c056fafdd45f7/dce42e82d_Warehouse.mp4' },
+  { label: 'Factory 2', url: '/videos/factory-2.webm' },
 ];
 
-const VIDEO_COVER_ICONS = [Factory, Factory, Warehouse];
+const VIDEO_COVER_ICONS = [Factory, Factory];
 
 export default function HeroSection() {
   const [activeVideo, setActiveVideo] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
   const currentVideo = VIDEO_SOURCES[activeVideo].url;
   const { getContent } = useSiteContent();
   const heading = getContent('home', 'heading', 'Wholesale Used Clothing Supplier & Exporter in UAE');
@@ -27,6 +28,8 @@ export default function HeroSection() {
   };
 
   return (
+    <>
+    <InquiryModal isOpen={isInquiryOpen} onClose={() => setIsInquiryOpen(false)} />
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-primary/80">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -40,30 +43,31 @@ export default function HeroSection() {
       <div className="absolute top-20 right-10 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-32 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full text-primary-foreground/80 text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full text-primary-foreground/80 text-xs sm:text-sm font-medium mb-6">
             <Globe className="w-4 h-4 text-primary" />
             UAE Used Clothing Sorting & Wholesale Export
           </div>
-          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 font-playfair">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5 font-playfair">
             {heading}
           </h1>
-          <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-lg">
+          <p className="text-white/75 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-lg">
             {subtitle}
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-all hover:scale-105"
+            <button
+              type="button"
+              onClick={() => setIsInquiryOpen(true)}
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20"
             >
               Make an Inquiry <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
             <a
               href="#products"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
@@ -183,5 +187,6 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }
