@@ -66,6 +66,9 @@
   body {
     @apply bg-background text-foreground font-inter;
   }
+  main {
+    padding-top: 64px;
+  }
   h1, h2, h3 {
     @apply font-playfair;
   }

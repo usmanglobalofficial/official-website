@@ -17,7 +17,7 @@ export default function Home() {
     <div className="min-h-screen overflow-x-hidden">
       <SeoManager />
       <Navbar />
-      <main className="pt-[96px] md:pt-[112px]">
+      <main className="pt-[64px]">
         <HeroSection />
         <AboutSection />
         {/* <DirectorsSection /> — temporarily hidden */}

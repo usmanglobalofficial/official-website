@@ -69,7 +69,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
-      <main className="pt-[72px] md:pt-[112px]">
+      <main className="pt-[64px]">
         {/* Header Hero */}
         <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-primary/80 text-white py-14 sm:py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">

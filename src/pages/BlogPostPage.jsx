@@ -88,7 +88,7 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
-      <main className="pt-[96px] md:pt-[112px]">
+      <main className="pt-[64px]">
         {loading ? (
           <div className="flex items-center justify-center py-32">
             <Loader2 className="w-8 h-8 text-primary animate-spin" />

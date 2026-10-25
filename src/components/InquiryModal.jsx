@@ -80,6 +80,24 @@ export default function InquiryModal({ isOpen, onClose, defaultProduct = '' }) {
     }
   };
 
+  const handleWhatsAppQuote = (e) => {
+    if (e) e.preventDefault();
+    let text = `Hello Usman Global Wholesale Export Desk,\nI would like to get a quote:`;
+    if (formData.name?.trim()) text += `\n• Name: ${formData.name.trim()}`;
+    if (formData.country?.trim() || formData.company?.trim()) {
+      text += `\n• Company / Country: ${formData.country?.trim() || formData.company?.trim()}`;
+    }
+    if (formData.phone?.trim()) text += `\n• WhatsApp / Phone: ${formData.phone.trim()}`;
+    if (formData.email?.trim()) text += `\n• Email: ${formData.email.trim()}`;
+    if (formData.message?.trim()) {
+      text += `\n• Requirements: ${formData.message.trim()}`;
+    } else {
+      text += `\n• Requirements: Please share your latest price list, available bales, and export container shipping rates.`;
+    }
+    const url = `https://wa.me/${WHATSAPP_RAW}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   const whatsappMessage = encodeURIComponent(
     `Hello Usman Global F.Z.C.,\n\nI am contacting you regarding wholesale supply:\n• Name: ${formData.name}\n• Company: ${formData.company || 'Wholesale Buyer'}\n• Country: ${formData.country || 'International'}\n• Requirements: ${formData.message}`
   );
@@ -248,23 +266,35 @@ export default function InquiryModal({ isOpen, onClose, defaultProduct = '' }) {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    className="w-full py-3.5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-primary/25 disabled:opacity-70"
-                  >
-                    {status === 'submitting' ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        Submitting to Export Desk...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4" />
-                        Submit Wholesale Inquiry
-                      </>
-                    )}
-                  </button>
+                  {/* Dual Action Buttons */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                    <button
+                      type="submit"
+                      disabled={status === 'submitting'}
+                      className="w-full py-3 px-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 shadow-md hover:shadow-primary/25 disabled:opacity-70"
+                    >
+                      {status === 'submitting' ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          Submit an Inquiry
+                        </>
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleWhatsAppQuote}
+                      className="w-full py-3 px-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-xl text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 shadow-md hover:shadow-emerald-500/25"
+                    >
+                      <MessageSquare className="w-4 h-4 fill-white/20" />
+                      Get a Quote on WhatsApp
+                    </button>
+                  </div>
 
                   <div className="flex items-center justify-center gap-4 pt-2 text-xs text-muted-foreground border-t border-slate-100">
                     <span className="flex items-center gap-1">

@@ -739,7 +739,7 @@ export default function Catalogue() {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
-      <main className="pt-[96px] md:pt-[112px]">
+      <main className="pt-[64px]">
         {/* CLEAN, SIMPLE HERO HEADER (NO ARTIFICIAL COUNTER METRICS) */}
         <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-primary/85 text-white py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -1132,100 +1132,102 @@ export default function Catalogue() {
               className="absolute inset-0 bg-black/85 backdrop-blur-md"
             />
 
-            {/* Modal Container */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ duration: 0.25 }}
-              className="relative w-full max-w-4xl bg-slate-950/95 border border-white/15 rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col md:flex-row backdrop-blur-2xl max-h-[92vh]"
-            >
-              {/* Close Button */}
-              <button
-                onClick={handleCloseProduct}
-                className="absolute top-3.5 right-3.5 z-40 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white/80 hover:text-white transition-all flex items-center justify-center border border-white/15 hover:scale-105"
-                aria-label="Close modal"
+              {/* Modal Container */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 15 }}
+                transition={{ duration: 0.25 }}
+                className="relative w-full max-w-5xl bg-slate-950/95 border border-white/15 rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col md:flex-row backdrop-blur-2xl max-h-[92vh] md:max-h-[880px]"
               >
-                <X className="w-4 h-4" />
-              </button>
+                {/* Close Button */}
+                <button
+                  onClick={handleCloseProduct}
+                  className="absolute top-3.5 right-3.5 z-40 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white/80 hover:text-white transition-all flex items-center justify-center border border-white/15 hover:scale-105"
+                  aria-label="Close modal"
+                >
+                  <X className="w-4 h-4" />
+                </button>
 
-              {/* LEFT SIDE: MEDIA VIEWER (SWITCH BETWEEN VIDEO REEL AND DESIGN PHOTOS) */}
-              <div className="relative md:w-[48%] bg-black flex flex-col items-center justify-center overflow-hidden min-h-[340px] md:min-h-[520px]">
-                
-                {/* TOP MEDIA SWITCHER TAB (IF PRODUCT HAS BOTH VIDEO AND PHOTOS) */}
-                <div className="absolute top-3 left-3 right-3 z-30 flex items-center justify-between gap-2">
-                  <div className="flex items-center p-1 rounded-xl bg-black/80 backdrop-blur-md border border-white/15 shadow-lg">
-                    {selectedProduct.videoUrl && (
-                      <button
-                        onClick={() => setActiveMediaTab('video')}
-                        className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
-                          activeMediaTab === 'video'
-                            ? 'bg-primary text-white shadow-sm'
-                            : 'text-white/70 hover:text-white'
-                        }`}
-                      >
-                        <Play className="w-3 h-3 fill-current" />
-                        <span>Video Reel</span>
-                      </button>
-                    )}
+                {/* LEFT SIDE: MEDIA VIEWER (SWITCH BETWEEN VIDEO REEL AND DESIGN PHOTOS) */}
+                <div className="relative w-full md:w-[480px] shrink-0 bg-black flex flex-col items-center justify-center overflow-hidden aspect-[480/848] max-h-[60vh] md:max-h-[848px]">
+                  
+                  {/* TOP MEDIA SWITCHER TAB (IF PRODUCT HAS BOTH VIDEO AND PHOTOS) */}
+                  <div className="absolute top-3 left-3 right-3 z-30 flex items-center justify-between gap-2">
+                    <div className="flex items-center p-1 rounded-xl bg-black/80 backdrop-blur-md border border-white/15 shadow-lg">
+                      {selectedProduct.videoUrl && (
+                        <button
+                          onClick={() => setActiveMediaTab('video')}
+                          className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+                            activeMediaTab === 'video'
+                              ? 'bg-primary text-white shadow-sm'
+                              : 'text-white/70 hover:text-white'
+                          }`}
+                        >
+                          <Play className="w-3 h-3 fill-current" />
+                          <span>Video Reel</span>
+                        </button>
+                      )}
 
-                    {selectedProduct.images && selectedProduct.images.length > 0 && (
-                      <button
-                        onClick={() => setActiveMediaTab('images')}
-                        className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
-                          activeMediaTab === 'images'
-                            ? 'bg-primary text-white shadow-sm'
-                            : 'text-white/70 hover:text-white'
-                        }`}
-                      >
-                        <Images className="w-3.5 h-3.5" />
-                        <span>Photos ({selectedProduct.images.length})</span>
-                      </button>
-                    )}
+                      {selectedProduct.images && selectedProduct.images.length > 0 && (
+                        <button
+                          onClick={() => setActiveMediaTab('images')}
+                          className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+                            activeMediaTab === 'images'
+                              ? 'bg-primary text-white shadow-sm'
+                              : 'text-white/70 hover:text-white'
+                          }`}
+                        >
+                          <Images className="w-3.5 h-3.5" />
+                          <span>Photos ({selectedProduct.images.length})</span>
+                        </button>
+                      )}
+                    </div>
+
+                    <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-black/75 text-white backdrop-blur-md border border-white/15 hidden sm:inline-block">
+                      {selectedProduct.grade}
+                    </span>
                   </div>
 
-                  <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-black/75 text-white backdrop-blur-md border border-white/15 hidden sm:inline-block">
-                    {selectedProduct.grade}
-                  </span>
-                </div>
-
-                {/* 1. VIDEO VIEW */}
-                {activeMediaTab === 'video' && selectedProduct.videoUrl && (
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <video
-                      ref={videoRef}
-                      key={selectedProduct.videoUrl}
-                      src={selectedProduct.videoUrl}
-                      className="w-full h-full max-h-[520px] object-cover"
-                      autoPlay
-                      loop
-                      playsInline
-                      muted={isMuted}
-                      controls
-                    />
-
-                    {/* Sound Toggle Button */}
-                    <button
-                      onClick={() => setIsMuted(!isMuted)}
-                      className="absolute bottom-3 right-3 z-20 w-8 h-8 rounded-full bg-black/70 hover:bg-black text-white transition-all flex items-center justify-center border border-white/20 hover:scale-105"
-                      title={isMuted ? 'Unmute' : 'Mute'}
-                    >
-                      {isMuted ? <VolumeX className="w-4 h-4 text-rose-400" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
-                    </button>
-                  </div>
-                )}
-
-                {/* 2. PHOTO GALLERY VIEW (WHEN IMAGES SELECTED OR VIDEO NOT YET SHOT) */}
-                {activeMediaTab === 'images' && selectedProduct.images && selectedProduct.images.length > 0 && (
-                  <div className="relative w-full h-full flex flex-col items-center justify-between p-2">
-                    {/* Main Image Display with Next/Prev Buttons */}
-                    <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden rounded-2xl mt-12 mb-2">
-                      <img
-                        key={selectedProduct.images[activeImageIndex]}
-                        src={selectedProduct.images[activeImageIndex]}
-                        alt={`${selectedProduct.title} - Design ${activeImageIndex + 1}`}
-                        className="w-full h-full max-h-[420px] object-cover rounded-xl"
+                  {/* 1. VIDEO VIEW */}
+                  {activeMediaTab === 'video' && selectedProduct.videoUrl && (
+                    <div className="relative w-full h-full flex items-center justify-center bg-black">
+                      <video
+                        ref={videoRef}
+                        key={selectedProduct.videoUrl}
+                        src={selectedProduct.videoUrl}
+                        width="480"
+                        height="848"
+                        className="w-full h-full max-w-[480px] max-h-[848px] object-contain"
+                        autoPlay
+                        loop
+                        playsInline
+                        muted={isMuted}
+                        controls
                       />
+
+                      {/* Sound Toggle Button */}
+                      <button
+                        onClick={() => setIsMuted(!isMuted)}
+                        className="absolute bottom-3 right-3 z-20 w-8 h-8 rounded-full bg-black/70 hover:bg-black text-white transition-all flex items-center justify-center border border-white/20 hover:scale-105"
+                        title={isMuted ? 'Unmute' : 'Mute'}
+                      >
+                        {isMuted ? <VolumeX className="w-4 h-4 text-rose-400" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
+                      </button>
+                    </div>
+                  )}
+
+                  {/* 2. PHOTO GALLERY VIEW (WHEN IMAGES SELECTED OR VIDEO NOT YET SHOT) */}
+                  {activeMediaTab === 'images' && selectedProduct.images && selectedProduct.images.length > 0 && (
+                    <div className="relative w-full h-full flex flex-col items-center justify-between p-2">
+                      {/* Main Image Display with Next/Prev Buttons */}
+                      <div className="relative w-full flex-1 flex items-center justify-center overflow-hidden rounded-2xl mt-12 mb-2">
+                        <img
+                          key={selectedProduct.images[activeImageIndex]}
+                          src={selectedProduct.images[activeImageIndex]}
+                          alt={`${selectedProduct.title} - Design ${activeImageIndex + 1}`}
+                          className="w-full h-full max-h-[720px] object-contain rounded-xl"
+                        />
 
                       {/* Previous Image Arrow */}
                       {selectedProduct.images.length > 1 && (
@@ -1288,7 +1290,7 @@ export default function Catalogue() {
               </div>
 
               {/* RIGHT SIDE: PRODUCT DETAILS & SHARE WIDGETS */}
-              <div className="md:w-[52%] p-6 sm:p-7 flex flex-col justify-between text-white overflow-y-auto">
+              <div className="flex-1 min-w-0 p-6 sm:p-7 flex flex-col justify-between text-white overflow-y-auto">
                 <div>
                   {/* Origin tag */}
                   <div className="flex items-center gap-2 text-[11px] text-accent font-semibold uppercase tracking-wider mb-2">
